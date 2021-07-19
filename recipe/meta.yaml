@@ -11,19 +11,32 @@ source:
   sha256: 7a390f200f0ccd207e8cff6757e04817c1a0aec3e327b006b7eb451c57ee3538
 
 build:
-  number: 0
+  number: 1
+  ignore_run_exports:
+    - libgcc-ng
+    - libstdcxx-ng
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - cmake
-    - ninja
+    - cmake {{ cmake }}
+    - ninja {{ ninja }}
+    # Use pins to control cos6/cos7 match
+    - libgcc-ng  {{ libgcc }}
+    - libstdcxx-ng  {{ libstdcxx }}
+  host:
+    # Use pins to control cos6/cos7 match
+    - libgcc-ng  {{ libgcc }}
+    - libstdcxx-ng  {{ libstdcxx }}
+  run:
+    # Use pins to control cos6/cos7 match
+    - libgcc-ng  {{ libgcc }}
+    - libstdcxx-ng  {{ libstdcxx }}
 
 test:
   commands:
-    - test -f $PREFIX/include/date/date.h  # [unix]
-    - if not exist %LIBRARY_INC%\\date\\date.h exit 1  # [win]
+    - test -f $PREFIX/include/date/date.h
 
 about:
   home: https://github.com/HowardHinnant/date
@@ -33,4 +46,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - xhochy
+    - open-ce/open-ce-dev-team
