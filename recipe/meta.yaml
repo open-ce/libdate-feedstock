@@ -11,10 +11,7 @@ source:
   sha256: 7a390f200f0ccd207e8cff6757e04817c1a0aec3e327b006b7eb451c57ee3538
 
 build:
-  number: 1
-  ignore_run_exports:
-    - libgcc-ng
-    - libstdcxx-ng
+  number: 2
 
 requirements:
   build:
@@ -26,10 +23,6 @@ requirements:
     - libgcc-ng  {{ libgcc }}
     - libstdcxx-ng  {{ libstdcxx }}
   host:
-    # Use pins to control cos6/cos7 match
-    - libgcc-ng  {{ libgcc }}
-    - libstdcxx-ng  {{ libstdcxx }}
-  run:
     # Use pins to control cos6/cos7 match
     - libgcc-ng  {{ libgcc }}
     - libstdcxx-ng  {{ libstdcxx }}
