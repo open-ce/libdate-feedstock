@@ -11,7 +11,7 @@ source:
   sha256: 7a390f200f0ccd207e8cff6757e04817c1a0aec3e327b006b7eb451c57ee3538
 
 build:
-  number: 2
+  number: 3
 
 requirements:
   build:
@@ -20,12 +20,12 @@ requirements:
     - cmake {{ cmake }}
     - ninja {{ ninja }}
     # Use pins to control cos6/cos7 match
-    - libgcc-ng  {{ libgcc }}
-    - libstdcxx-ng  {{ libstdcxx }}
+    - libgcc-ng  {{ libgcc }}                    # [x86_64 and c_compiler_version == "7.2.*"]
+    - libstdcxx-ng  {{ libstdcxx }}              # [x86_64 and c_compiler_version == "7.2.*"]
   host:
     # Use pins to control cos6/cos7 match
-    - libgcc-ng  {{ libgcc }}
-    - libstdcxx-ng  {{ libstdcxx }}
+    - libgcc-ng  {{ libgcc }}                    # [x86_64 and c_compiler_version == "7.2.*"]
+    - libstdcxx-ng  {{ libstdcxx }}              # [x86_64 and c_compiler_version == "7.2.*"]
 
 test:
   commands:
