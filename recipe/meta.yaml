@@ -11,12 +11,12 @@ source:
   sha256: 7a390f200f0ccd207e8cff6757e04817c1a0aec3e327b006b7eb451c57ee3538
 
 build:
-  number: 3
+  number: 4
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}    # [ ppc_arch != "p10"]
+    - {{ compiler('cxx') }}  # [ ppc_arch != "p10"]
     - cmake {{ cmake }}
     - ninja {{ ninja }}
     # Use pins to control cos6/cos7 match
